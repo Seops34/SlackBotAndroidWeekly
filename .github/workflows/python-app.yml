@@ -31,6 +31,7 @@ jobs:
         pip install flake8 pytest
         python -m pip install slack_sdk
         python -m pip install beautifulsoup4
+        python -m pip install requests
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
