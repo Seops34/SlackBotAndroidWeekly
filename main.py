@@ -16,7 +16,11 @@ articles = []
 
 response = requests.get("https://androidweekly.net/")
 html = bs(response.text, "html.parser")
-date = html.find('a', {'href':'/issues/issue-584'}).get_text().strip()
+
+header = html.find('div', {'class':'issue-header'})
+issueNumer = header.find('span').get_text().strip()
+date = header.find('small').get_text().strip()
+
 items = html.find_all('div', {'class':'text-container galileo-ap-content-editor'})
 
 for item in items:
@@ -35,7 +39,7 @@ for item in items:
     articles.append(article)
 
 grouped = {group: list(items) for group, items in groupby(articles, attrgetter('group'))}
-message = '금주 Android Weekly {} 입니다!\n\n'.format(date)
+message = '이번주 Android Weekly {} ({}) 입니다!\n\n'.format(issueNumer, date)
 
 for group, items in grouped.items():
     message += '[ {} ]\n'.format(group)
