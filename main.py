@@ -45,7 +45,7 @@ for group, items in grouped.items():
     message += '[ {} ]\n'.format(group)
     for index, item in enumerate(items):
         message += '{}. {}\n - 내용 : {}\n - 링크 : {}\n\n'.format(index + 1, item.title, item.desc, item.url)
-    message += '\n\n'
+    message += '\n'
   
 
 # Send Data
