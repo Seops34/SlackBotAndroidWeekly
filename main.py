@@ -3,7 +3,6 @@ import requests
 from itertools import groupby
 from operator import attrgetter
 from article import Article
-
 import os
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
